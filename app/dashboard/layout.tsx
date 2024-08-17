@@ -12,7 +12,10 @@ function layout({
       <div className="md:w-64 hidden md:block fixed">
         <SideNav />
       </div>
-      <div className="md:ml-64">{children}</div>
+      <div className="md:ml-64">
+        <Header />
+        {children}
+      </div>
     </div>
   );
 }
