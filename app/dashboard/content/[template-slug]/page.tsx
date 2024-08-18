@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import FormSection from "../_components/FormSection";
 import OutputSection from "../_components/OutputSection";
@@ -15,12 +16,19 @@ function CreateNewContent(props: PROPS) {
     (item) => item.slug == props.params["template-slug"]
   );
 
+  const GenerateAIContent = (formData: any) => {};
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-5">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5">
       {/* FormSection */}
-      <FormSection selectedTemplate={selectedTemplate} />
+      <FormSection
+        selectedTemplate={selectedTemplate}
+        userFormInput={(v: any) => GenerateAIContent(v)}
+      />
       {/* OutputSection */}
-      <OutputSection />
+      <div className="col-span-2">
+        <OutputSection />
+      </div>
     </div>
   );
 }
